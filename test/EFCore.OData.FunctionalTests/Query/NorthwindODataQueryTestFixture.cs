@@ -12,7 +12,7 @@ using Microsoft.OData.Edm;
 
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public class NorthwindODataQueryTestFixture : NorthwindQuerySqlServerFixture<NoopModelCustomizer>, IODataQueryTestFixture
+    public class NorthwindODataQueryTestFixture : NorthwindQuerySqlServerFixture<NoopModelCustomizer>//, IODataQueryTestFixture
     {
         private IHost _selfHostServer = null;
 

@@ -11,7 +11,7 @@ using Microsoft.OData.Edm;
 
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public class GearsOfWarODataQueryTestFixture : GearsOfWarQuerySqlServerFixture, IODataQueryTestFixture
+    public class GearsOfWarODataQueryTestFixture : GearsOfWarQuerySqlServerFixture//, IODataQueryTestFixture
     {
         private IHost _selfHostServer = null;
 

@@ -5,10 +5,10 @@ using System.Net.Http;
 
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public interface IODataQueryTestFixture
-    {
-        public string BaseAddress { get; }
+    //public interface IODataQueryTestFixture
+    //{
+    //    public string BaseAddress { get; }
 
-        public IHttpClientFactory ClientFactory { get; }
-    }
+    //    public IHttpClientFactory ClientFactory { get; }
+    //}
 }
