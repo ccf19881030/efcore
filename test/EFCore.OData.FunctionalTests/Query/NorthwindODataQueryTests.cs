@@ -10,12 +10,18 @@ using Xunit;
 
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public class NorthwindODataQueryTests : ODataQueryTestBase, IClassFixture<NorthwindODataQueryTestFixture>
+    public class NorthwindODataQueryTests : /*ODataQueryTestBase,*/ IClassFixture<NorthwindODataQueryTestFixture>
     {
         public NorthwindODataQueryTests(NorthwindODataQueryTestFixture fixture)
-            : base(fixture)
+            //: base(fixture)
         {
+            BaseAddress = fixture.BaseAddress;
+            Client = fixture.ClientFactory.CreateClient();
         }
+
+        public string BaseAddress { get; }
+
+        public HttpClient Client { get; }
 
         [ConditionalFact]
         public async Task Basic_query_customers()

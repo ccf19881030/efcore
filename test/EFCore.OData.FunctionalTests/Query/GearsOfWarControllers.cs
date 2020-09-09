@@ -273,6 +273,13 @@ namespace Microsoft.EntityFrameworkCore.Query
 
         [HttpGet]
         [EnableQuery]
+        public IEnumerable<LocustHorde> GetFromLocustHorde()
+        {
+            return _context.Factions.OfType<LocustHorde>();
+        }
+
+        [HttpGet]
+        [EnableQuery]
         public ITestActionResult Get([FromODataUri] int key)
         {
             var result = _context.Factions.FirstOrDefault(e => e.Id == key);
@@ -303,6 +310,13 @@ namespace Microsoft.EntityFrameworkCore.Query
         public IEnumerable<LocustLeader> Get()
         {
             return _context.LocustLeaders;
+        }
+
+        [HttpGet]
+        [EnableQuery]
+        public IEnumerable<LocustCommander> GetFromLocustCommander()
+        {
+            return _context.LocustLeaders.OfType<LocustCommander>();
         }
 
         [HttpGet]

@@ -5,20 +5,23 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore.Extensions;
-using Microsoft.OData.Edm;
 using Newtonsoft.Json.Linq;
 using Xunit;
 
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public class GearsOfWarODataQueryTests : ODataQueryTestBase, IClassFixture<GearsOfWarODataQueryTestFixture>
+    public class GearsOfWarODataQueryTests : /*ODataQueryTestBase,*/ IClassFixture<GearsOfWarODataQueryTestFixture>
     {
-        public static IEdmModel EdmModel;
-
         public GearsOfWarODataQueryTests(GearsOfWarODataQueryTestFixture fixture)
-            : base(fixture)
+            //: base(fixture)
         {
+            BaseAddress = fixture.BaseAddress;
+            Client = fixture.ClientFactory.CreateClient();
         }
+
+        public string BaseAddress { get; }
+
+        public HttpClient Client { get; }
 
         [ConditionalFact]
         public async Task Basic_query_gears()

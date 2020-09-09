@@ -5,16 +5,16 @@ using System.Net.Http;
 
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public abstract class ODataQueryTestBase
-    {
-        public ODataQueryTestBase(IODataQueryTestFixture fixture)
-        {
-            BaseAddress = fixture.BaseAddress;
-            Client = fixture.ClientFactory.CreateClient();
-        }
+    //public abstract class ODataQueryTestBase
+    //{
+    //    public ODataQueryTestBase(IODataQueryTestFixture fixture)
+    //    {
+    //        BaseAddress = fixture.BaseAddress;
+    //        Client = fixture.ClientFactory.CreateClient();
+    //    }
 
-        public string BaseAddress { get; }
+    //    public string BaseAddress { get; }
 
-        public HttpClient Client { get; }
-    }
+    //    public HttpClient Client { get; }
+    //}
 }
