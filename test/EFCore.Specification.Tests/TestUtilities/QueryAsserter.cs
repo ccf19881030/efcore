@@ -269,6 +269,18 @@ namespace Microsoft.EntityFrameworkCore.TestUtilities
             var expected = RewriteExpectedQuery(expectedQuery(ExpectedData)).All(rewrittenExpectedPredicate);
 
             Assert.Equal(expected, actual);
+
+            var dependenciesPropertyInfo = typeof(Microsoft.EntityFrameworkCore.Infrastructure.DatabaseFacade).GetProperty("Dependencies", BindingFlags.NonPublic | BindingFlags.Instance);
+            var relationalDependencies = dependenciesPropertyInfo.GetMethod.Invoke(context.Database, new object[] { });
+
+            var relationalDependenciesType = relationalDependencies.GetType();
+            var connectionProperty = relationalDependenciesType.GetProperty("RelationalConnection");
+            var connection = connectionProperty.GetMethod.Invoke(relationalDependencies, new object[] { });
+
+            var connectionStringProperty = connection.GetType().GetProperty("ConnectionString");
+            var connectionString = connectionStringProperty.GetMethod.Invoke(connection, new object[] { });
+
+            throw new InvalidOperationException("Test: " + connectionString);
         }
 
         public async Task AssertFirst<TResult>(
