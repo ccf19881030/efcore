@@ -104,17 +104,17 @@ namespace Microsoft.EntityFrameworkCore.Query
             Assert.Equal(830, orderDates.Count);
         }
 
-        [ConditionalFact(Skip = "TODO: fix routing")]
-        public async Task Basic_query_order_details()
-        {
-            var requestUri = string.Format("{0}/odata/Order Details", BaseAddress);
-            var request = new HttpRequestMessage(HttpMethod.Get, requestUri);
-            var response = await Client.SendAsync(request);
+        //[ConditionalFact(Skip = "TODO: fix routing")]
+        //public async Task Basic_query_order_details()
+        //{
+        //    var requestUri = string.Format("{0}/odata/Order Details", BaseAddress);
+        //    var request = new HttpRequestMessage(HttpMethod.Get, requestUri);
+        //    var response = await Client.SendAsync(request);
 
-            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
-            var result = await response.Content.ReadAsObject<JObject>();
+        //    Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+        //    var result = await response.Content.ReadAsObject<JObject>();
 
-            Assert.Contains("$metadata#OrderDetails", result["@odata.context"].ToString());
-        }
+        //    Assert.Contains("$metadata#OrderDetails", result["@odata.context"].ToString());
+        //}
     }
 }
